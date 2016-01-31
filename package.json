@@ -2,9 +2,25 @@
   "name": "rpt-chrome",
   "version": "0.0.0",
   "description": "RPT for Google Chrome",
-  "main": "index.js",
+  "config": {
+    "DEST": "build"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "before": "mkdir -p $npm_package_config_DEST",
+    "build": "npm-run-all before -p build:*",
+    "build:ls": "lsc -c -o $npm_package_config_DEST src",
+    "build:jade": "jade src --out $npm_package_config_DEST",
+    "build:lson": "lson -o $npm_package_config_DEST src/*.lson",
+    "clean": "rm -rf $npm_package_config_DEST",
+    "watch": "chokidar '?(src/*.ls|src/*.lson|src/*.jade)' -c 'npm run build'"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^1.2.0",
+    "jade": "^1.11.0",
+    "livescript": "^1.4.0",
+    "lson-cli": "0.0.6",
+    "npm-run-all": "^1.5.1",
+    "uglify-js": "^2.6.1"
   },
   "author": "jigsaw (http://jgs.me)",
   "license": "MIT"
