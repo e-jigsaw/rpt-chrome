@@ -8,12 +8,21 @@ document.body.add-event-listener do
 
 image-el = document.get-element-by-id \image
 
-chrome.storage.sync.get do
-  [\idOrUrl, \isSafeMode]
-  (item)->
-    image-el.set-attribute do
-      \style
-      if item.is-safe-mode
-        'width:100%;height:100%;background-image:url(\'https://media.giphy.com/media/RVNLmBzQtdCSI/giphy.gif\');background-repeat:no-repeat;background-size:contain;background-position:center;background-color:#C3F2FF;'
-      else
-        "width:100%;height:100%;background-image:url('http://rpt.jgs.me/r/#{item.id-or-url}');background-repeat:no-repeat;background-size:contain;background-position:center;background-color:#36465d;"
+{is-safe-mode} <- chrome.storage.sync.get \isSafeMode
+if is-safe-mode
+  return image-el.set-attribute do
+    \style
+    'width:100%;height:100%;background-image:url(\'https://media.giphy.com/media/RVNLmBzQtdCSI/giphy.gif\');background-repeat:no-repeat;background-size:contain;background-position:center;background-color:#C3F2FF;'
+
+{images} <- chrome.storage.local.get \images
+url = images.shift!
+image-el.set-attribute do
+  \style
+  "width:100%;height:100%;background-image:url('#{url}');background-repeat:no-repeat;background-size:contain;background-position:center;background-color:#36465d;"
+
+<- chrome.storage.local.set do
+  images: images
+
+if images.length < 10
+  chrome.runtime.send-message do
+    update-images: true

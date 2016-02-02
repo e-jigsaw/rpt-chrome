@@ -3,7 +3,10 @@ name: \rpt-chrome
 description: 'RPT for Google Chrome'
 version: \0.0.1
 author: 'jigsaw (http://jgs.me)'
-permissions: <[storage]>
+permissions: <[storage unlimitedStorage]>
 options_page: \options.html
 chrome_url_overrides:
   newtab: \index.html
+background:
+  scripts: <[event.js]>
+  persistent: false
