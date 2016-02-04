@@ -17,6 +17,10 @@ fetch-image = ->
         is-lock: false
       if next-images.length < 20
         fetch-image!
+    .catch (err)->
+      console.log err
+      chrome.storage.set do
+        is-lock: false
 
 req, sender, send <- chrome.runtime.on-message.add-listener
 if req.update-images
