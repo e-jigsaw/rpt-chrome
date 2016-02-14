@@ -16,10 +16,14 @@ if is-safe-mode
 
 {images} <- chrome.storage.local.get \images
 url = images.shift!
-if url isnt undefined
-  image-el.set-attribute do
-    \style
-    "width:100%;height:100%;background-image:url('#{url}');background-repeat:no-repeat;background-size:contain;background-position:center;background-color:#36465d;"
+
+try
+  if url isnt undefined
+    image-el.set-attribute do
+      \style
+      "width:100%;height:100%;background-image:url('#{url}');background-repeat:no-repeat;background-size:contain;background-position:center;background-color:#36465d;"
+catch err
+  console.error err
 
 <- chrome.storage.local.set do
   images: images
