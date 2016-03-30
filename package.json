@@ -19,7 +19,7 @@
     "jade": "^1.11.0",
     "livescript": "^1.4.0",
     "lson-cli": "0.0.6",
-    "npm-run-all": "^1.6.0",
+    "npm-run-all": "^1.7.0",
     "uglify-js": "^2.6.2"
   },
   "author": "jigsaw (http://jgs.me)",
