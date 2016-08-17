@@ -20,7 +20,7 @@
     "livescript": "^1.5.0",
     "lson-cli": "0.0.6",
     "npm-run-all": "^2.3.0",
-    "uglify-js": "^2.7.1"
+    "uglify-js": "^2.7.2"
   },
   "author": "jigsaw (http://jgs.me)",
   "license": "MIT"
