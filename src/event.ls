@@ -23,5 +23,10 @@ fetch-image = ->
         is-lock: false
 
 req, sender, send <- chrome.runtime.on-message.add-listener
+
 if req.update-images
   fetch-image!
+
+if req.clear-lock
+  chrome.storage.local.set do
+    is-lock: false
