@@ -5,7 +5,7 @@ fetch-image = ->
     return
   <- chrome.storage.local.set do
     is-lock: true
-  fetch "http://rpt.jgs.me/b/#{id-or-url}"
+  fetch "https://rpt.now.sh/b?id=#{id-or-url}"
     .then (res)-> res.text!
     .then (text)->
       if Array.is-array images
