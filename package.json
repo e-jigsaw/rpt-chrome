@@ -17,10 +17,10 @@
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
     "jade": "^1.11.0",
-    "livescript": "^1.4.0",
+    "livescript": "^1.5.0",
     "lson-cli": "0.0.6",
-    "npm-run-all": "^1.5.1",
-    "uglify-js": "^2.6.1"
+    "npm-run-all": "^4.0.1",
+    "uglify-js": "^2.7.5"
   },
   "author": "jigsaw (http://jgs.me)",
   "license": "MIT"
