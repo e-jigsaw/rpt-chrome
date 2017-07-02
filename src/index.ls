@@ -1,10 +1,14 @@
 document.body.add-event-listener do
   \keydown
   (event)->
-    if event.key-code is 32
+    switch event.key-code
+    | 32 =>
       item <- chrome.storage.sync.get \isSafeMode
       chrome.storage.sync.set do
         is-safe-mode: !item.is-safe-mode
+    | 76 =>
+      chrome.runtime.send-message do
+        clear-lock: true
 
 image-el = document.get-element-by-id \image
 
