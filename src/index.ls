@@ -19,6 +19,7 @@ if is-safe-mode
     'width:100%;height:100%;background-image:url(\'https://media.giphy.com/media/RVNLmBzQtdCSI/giphy.gif\');background-repeat:no-repeat;background-size:contain;background-position:center;background-color:#C3F2FF;'
 
 {images} <- chrome.storage.local.get \images
+images = [] if images is undefined
 url = images.shift!
 
 try
