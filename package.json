@@ -19,8 +19,8 @@
     "jade": "^1.11.0",
     "livescript": "^1.5.0",
     "lson-cli": "0.0.6",
-    "npm-run-all": "^4.0.2",
-    "uglify-js": "^3.0.23"
+    "npm-run-all": "^4.1.2",
+    "uglify-js": "^3.2.2"
   },
   "author": "jigsaw (http://jgs.me)",
   "license": "MIT"
